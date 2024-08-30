@@ -1,15 +1,24 @@
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
 
-dotenv.config({
-    path: './env'
+dotenv.config({                
+     path: './env'
 })
-connectDB()
+connectDB() 
+.then(()=>{
+    app.listen(process.env.PORT || 8000 , ()=>{
+        console.log(`Server is running at port:${process.env.PORT}`);
+    })
 
+})
+.catch((err)=>{
+    console.log("MONGO db connection failed !",err);
 
-// connect of database
-//2nd app - take dif.file and import from there
-//in index and exwcute
+}) 
+
+ //The dotenv.config() function is crucial for loading environment variables from a .env file into your Node.js application's process.env. 
+//2nd approach - take different file here is(index.js  in db) and import from there
+//in index and execute
 
 
 
