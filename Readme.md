@@ -1,54 +1,77 @@
-# PROJECT-BACKEND Of Video Streaming
+# Playstream - Backend
 
-This project is the backend implementation for a video streaming platform. It provides APIs and services to manage video uploads, streaming, user authentication, and more.
+A combined backend server for a YouTube + X (Twitter)-like application, where users can upload videos, stream content, and post microblogs (tweets), with support for likes, comments, and follow features.
 
-## Features
+## 🚀 Features
 
-- User authentication and authorization
-- Video upload and storage
-- Video streaming support
-- Video metadata management
-- API documentation
+### 🎥 Video Module (YouTube)
+- Upload videos with metadata (title, description, tags)
+- Video streaming in multiple resolutions
+- Thumbnails and duration auto-generated
+- Like, comment, and view tracking
+- Video search and recommendations
 
-## Technologies Used
+### 🐦 Post Module (Twitter)
+- Create text/image posts (tweets)
+- Like, retweet, and comment on posts
+- Follow/unfollow users
+- User timeline with real-time feed
+- Trending hashtags
 
-- **Backend Framework**: [Specify framework, e.g., Node.js]
-- **Database**: [Specify database, e.g., MongoDB]
-- **Cloud Storage**: [Specify storage, e.g., cloudinary]
+### 🔐 Authentication & User System
+- JWT-based Auth (Login/Signup)
+- User profile (bio, avatar, followers)
+- Role-based access control (admin/mod/user)
 
-## Installation
+---
 
-1. Clone the repository:
-  ```bash
-  git clone https://github.com/your-repo/project-backend-video-streaming.git
-  ```
-2. Navigate to the project directory:
-  ```bash
-  cd project-backend-video-streaming
-  ```
-3. Install dependencies:
-  ```bash
-  npm install
-  ```
-4. Set up environment variables in a `.env` file.
+## ⚙️ Tech Stack
 
-## Usage
+| Layer         | Technology                      |
+|---------------|----------------------------------|
+| Server        | Node.js, Express.js             |
+| Database      | MongoDB + Mongoose              |
+| Video Storage | AWS S3 / Cloudinary (or local)  |
+| Auth          | JWT, Bcrypt                     |
+| Realtime Feed | WebSockets / Socket.IO (Optional) |
+| Video Streaming | FFmpeg + Streams / HLS         |
+| Other Tools   | Multer (file upload), dotenv     |
 
-1. Start the development server:
-  ```bash
-  npm start
-  ```
-2. Access the API at `http://localhost:PORT`.
+---
 
-## API Endpoints
+## 🛠️ Installation
 
-| Method | Endpoint         | Description               |
-|--------|------------------|---------------------------|
-| POST   | `/api/login`     | User login                |
-| POST   | `/api/upload`    | Upload a video            |
-| GET    | `/api/videos`    | Fetch all videos          |
-| GET    | `/api/video/:id` | Stream a specific video   |
+```bash
+git clone https://github.com/Ravindra0999999/Playstream-Backend.git
+cd streamx-backend
+npm install
+npm run dev
 
-## Contributing
+## 📂 Project Structure
 
-Contributions are welcome! Please fork the repository and submit a pull request.
+```
+├── controllers/
+│   ├── authController.js
+│   ├── videoController.js
+│   └── postController.js
+├── models/
+│   ├── User.js
+│   ├── Video.js
+│   └── Post.js
+├── routes/
+│   ├── auth.js
+│   ├── videos.js
+│   └── posts.js
+├── middlewares/
+│   ├── authMiddleware.js
+│   └── errorHandler.js
+├── utils/
+│   └── videoProcessor.js
+├── uploads/
+│   └── (for temporary video/image storage)
+├── .env
+├── server.js
+└── README.md
+```
+
+---
